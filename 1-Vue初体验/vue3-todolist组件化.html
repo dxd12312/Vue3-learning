@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue3-todolist组件化</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        // mvvm、vue实例，vue组件
+       const app=Vue.createApp({
+          data() {
+              return {
+                  inputValue: "",
+                  list:[
+                      {
+                      title:"图片1",
+                      url:"https://tse4-mm.cn.bing.net/th/id/OIP-C.y5sI5nn9gOg0PZHFgw4iLAHaFj?pid=ImgDet&rs=1",
+                      desc:"末日论"
+                      },
+                      {
+                      title:"图片2",
+                      url:"https://wallpapercave.com/wp/3W55sNM.jpg",
+                      desc:"meili"
+
+                      },
+    
+                  ],
+              };
+          },
+        
+          template:`
+            <div class="container">
+            <imgCard v-for="(item,index) of list"
+          :title="item.title"
+          :src="item.url"
+          />
+          </div>
+          `,
+       });
+       
+       app.component("imgCard",{
+           props:["title","src"],
+           template:`
+           <div class="img-card">
+            <h2>{{title}}</h2>
+            <img :src="src"/>
+            </div>
+            `,
+       });
+       app.mount("#app");
+       
+          
+    
+    </script>
+
+</body>
+</html>
