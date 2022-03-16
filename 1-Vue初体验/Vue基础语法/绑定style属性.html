@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定style属性</title>
+</head>
+<body>
+    
+
+    <div id="app">
+        <!-- 用一个布尔值决定某个样式是否生效 -->
+        <!-- <h2  :style="{'background-color':'red','font-size':fontSize + 'px'}">绑定style属性红色h2</h2> -->
+        <h2 :style="{'background-color': color,'font-size':fontSize + 'px'}">背景替换</h2>
+        <button  @click="changeColor">换皮肤</button>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data () {
+                return {
+                    fontSize: 80,
+                    color: 'red'
+
+                }
+            
+            },
+        
+            methods: {
+                changeColor(){
+                    this.color = this.color ==='red' ? 'black' : 'red'
+                }
+                },
+            //     computed:{
+ 		    // background:function(){
+            //      return {
+           	// 	 backgroundImage:"url("+this.backgroundImgUrl+")",
+            // 	 backgroundRepeat:'no-repeat',
+           	// 	 backgroundSize:"cover",
+           	// 	 backgroundPosition:"center center"
+          	// 	}
+        	// }
+        
+        });
+        let vm = app.mount('#app');
+        </script>
+</body>
+</html>

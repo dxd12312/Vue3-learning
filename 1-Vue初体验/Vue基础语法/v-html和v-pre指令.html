@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-html和v-pre指令</title>
+</head>
+<body>
+    <div id="app">
+        <h2 v-pre>Vue真有趣，特别是{{Mustache}}插值表达式</h2>
+        <ul>
+            <!-- 错误的做法 -->
+            <li>{{age}}</li>
+            <li>{{link}}</li>
+            <!-- 正确的做法 -->
+            <li v-html="age"></li>
+            <li v-html="link"></li>
+        </ul>
+    </div>
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        // creatApp 表示创建的一个VUe应用，存储到app变量中
+        // 传入的参数表示这个应用最外层的组件，应该如何表示
+        // mvvm设计模式:m->model数据 v->view视图 vm->viewModel 视图数据连接层
+        const app = Vue.createApp({
+            data () {
+                return {
+                    age: '<strong>13</strong>',
+                    link: '<a href="https://www.baidu.com">百度一下</a>'
+                }
+            },
+            
+        });
+        // cm代表的就是vue应用的根组件
+        const vm = app.mount('#app');
+    </script>
+</body>
+</html>

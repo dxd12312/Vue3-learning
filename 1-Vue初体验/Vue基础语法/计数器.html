@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <div id="root">
+        <h2 v-cloak>当前counter: {{counter}}</h2>
+        <button @click="counter++">+</button>
+        <button @click="counter--">-</button>
+    </div>
+    
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        // creatApp 表示创建的一个VUe应用，存储到app变量中
+        // 传入的参数表示这个应用最外层的组件，应该如何表示
+        // mvvm设计模式:m->model数据 v->view视图 vm->viewModel 视图数据连接层
+        const app = Vue.createApp({
+            data () {
+                return {
+                    counter: 0
+                    
+                }
+            }
+           
+        });
+        // cm代表的就是vue应用的根组件
+        const vm = app.mount('#root');
+    </script> -->
+
+<div id="root">
+    <h2 v-cloak>当前counter: {{counter}}</h2>
+    <button @click="incr()">+</button>
+    <button @click="desc()">-</button>
+</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    // creatApp 表示创建的一个VUe应用，存储到app变量中
+    // 传入的参数表示这个应用最外层的组件，应该如何表示
+    // mvvm设计模式:m->model数据 v->view视图 vm->viewModel 视图数据连接层
+    const app = Vue.createApp({
+        data () {
+            return {
+                counter: 0
+                
+            }
+        },
+        methods: {
+            incr() {
+                this.counter++;
+            },
+            desc() {
+                this.counter--;
+            },
+        }
+       
+    });
+    // cm代表的就是vue应用的根组件
+    const vm = app.mount('#root');
+</script>
+</body>
+</html>

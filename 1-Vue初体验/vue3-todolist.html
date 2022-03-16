@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue3实现todolist——了解循环和双向绑定</title>
+    <style>
+        .finished {
+            text-decoration: line-through;
+            color:blue;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -18,7 +24,17 @@
            data() {
                return{
                    inputValue:"",
-                   list:['1','2','3'],
+                   list:[{
+                       title:"aaa",
+                       finished:"bbb"
+                   },
+                   {
+                       title:"aaa",
+                       finished:"bbb"
+                   },
+
+                ],
+               
                 //    colorData:['#ff0000','#007dff','#673ab7'],
                };
            },

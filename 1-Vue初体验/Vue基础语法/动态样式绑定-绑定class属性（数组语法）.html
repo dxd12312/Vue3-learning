@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态样式绑定-绑定class属性（数组语法）</title>
+    <style>
+        h2 {
+        width: 400px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+    }
+
+    .blue {
+        color: blue;
+    }
+    .red {
+        color: red;
+    }
+    .bold {
+        font-weight: 800;
+        font-size: 30px;
+    }
+    /* .red {
+        border: 1px solid red;
+    }
+
+    .green {
+        color: green;
+    }
+
+    .grey {
+        border: 1px solid grey;
+    } */
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        <!-- 用一个布尔值决定某个样式是否生效 -->
+       <h2 :class="cssArry">绑定class属性（数组语法）</h2>
+       <button @click="changeColor">文字颜色的切换</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data () {
+                return {
+
+                    cssArry: ["bold","blue"]
+                };
+            },
+            methods: {
+                changeColor(){
+                    // 如果当前不是蓝色，则把当前颜色弹出数组，将blue样式压入数组
+                    if(this.cssArry[1] !== 'blue') {
+                        this.cssArry.pop();
+                        this.cssArry.push("blue");
+                    }else{
+                          // 当前就是蓝色，那就换成红色
+                        this.cssArry.pop();
+                        this.cssArry.push("red");
+                    }
+            },
+            
+
+            },
+
+           
+        });
+        let vm = app.mount("#app");
+    </script>
+
+
+</body>
+</html>

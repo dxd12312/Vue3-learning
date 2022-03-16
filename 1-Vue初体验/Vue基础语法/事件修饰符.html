@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <style>
+        /* div {
+
+        } */
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h2 v-if="show"> hello</h2>
+         <a @click.prevent="doThis" href="#">点击</a> 
+        <!-- <form action="/login" @sumbit.prevent="doThis('hello') " method="get">
+            <input type="submit" value="提交">
+        </form> -->
+        <input src="text" @keyup.enter="sumbit">
+    </div> -->
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        // creatApp 表示创建的一个VUe应用，存储到app变量中
+        // 传入的参数表示这个应用最外层的组件，应该如何表示
+        // mvvm设计模式:m->model数据 v->view视图 vm->viewModel 视图数据连接层
+        const app = Vue.createApp({
+            data () {
+                return {
+                    link:'https://www.baidu.com',
+                    info:'hello'
+                    // show:false
+                }
+            },
+            methods: {
+                doThis(msg){
+                    alert(msg)
+                }
+
+            },
+        })
+        // cm代表的就是vue应用的根组件
+        const vm = app.mount('#root');
+    </script>
+</body>
+</html>
